@@ -24,9 +24,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -162,20 +166,56 @@ fun ClickCountButton() {
 //文字显示动画
     AnimatedVisibility(
         visible = press.value,
-        enter =  slideInVertically(
+        enter = slideInVertically(
             initialOffsetY = { fullHeight -> -fullHeight },
             animationSpec = tween(durationMillis = 250, easing = LinearOutSlowInEasing)
-        ) ,
+        ),
         exit = slideOutVertically(
             targetOffsetY = { fullHeight -> -fullHeight },
             animationSpec = tween(durationMillis = 250, easing = LinearOutSlowInEasing)
         ) + fadeOut()
-    ){
+    ) {
         Text(
             text = "+1",
             textAlign = TextAlign.Center,
             fontSize = 24.sp,
             modifier = Modifier.width(150.dp)
         )
+    }
+}
+
+
+//状态提升例子
+@Preview(showBackground = true)
+@Composable
+fun TextPreview() {
+    val textState = remember { mutableStateOf("") }
+    TextContent(text = textState.value, onTextChange = {
+        textState.value = it
+    })
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TextContent(text: String, onTextChange: (change: String) -> Unit) {
+    Box(modifier = Modifier.wrapContentSize()) {
+        Column(verticalArrangement = Arrangement.Center) {
+            Text(text = text, modifier = Modifier
+                .background(Color.White)
+                .padding(16.dp)
+                .fillMaxWidth()
+                .wrapContentHeight()
+                , color = Color.Blue,textAlign= TextAlign.Start)
+            TextField(
+                value = text,
+                onValueChange = onTextChange,
+                label = { Text(text = "请输入内容") },
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+            )
+        }
+
     }
 }
