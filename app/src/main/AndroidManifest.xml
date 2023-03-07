@@ -32,6 +32,7 @@
         </activity>
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ComposeAndViewActivity" />
+        <activity android:name=".ui.nav.HomeActivity" />
 
 
     </application>

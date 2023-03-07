@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -46,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.lifecycleScope
 import com.composedemo.ui.LoginActivity
+import com.composedemo.ui.nav.HomeActivity
 import com.composedemo.ui.theme.ComposeDemoTheme
 import com.composedemo.ui.theme.Purple80
 import com.composedemo.ui.theme.PurpleGrey40
@@ -67,23 +69,29 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     Column(modifier = Modifier.padding(50.dp)) {
-                        Button(modifier = Modifier.size(100.dp,32.dp),shape = RoundedCornerShape(5.dp),
+                        Button(modifier = Modifier.wrapContentSize(),shape = RoundedCornerShape(5.dp),
                             onClick = { startActivity(Intent(this@MainActivity, ShareQRCodeActivity::class.java)) }) {
                             Text(text = "Share")
                         }
                         Spacer(modifier = Modifier.size(10.dp))
-                        Button(modifier = Modifier.size(100.dp,32.dp), shape = RoundedCornerShape(5.dp),
+                        Button(modifier = Modifier.wrapContentSize(), shape = RoundedCornerShape(5.dp),
                             onClick = { startActivity(Intent(this@MainActivity, LoginActivity::class.java)) }) {
                             Text(text = "Login")
                         }
                         Spacer(modifier = Modifier.size(10.dp))
-                        Button(modifier = Modifier.size(100.dp,32.dp), shape = RoundedCornerShape(5.dp),
+                        Button(modifier = Modifier.wrapContentSize(), shape = RoundedCornerShape(5.dp),
                             onClick = { startActivity(Intent(this@MainActivity, ComposeAndViewActivity::class.java)) }) {
                             Text(text = "compose and view")
+                        }
+                        Spacer(modifier = Modifier.size(10.dp))
+                        Button(modifier = Modifier.wrapContentSize(), shape = RoundedCornerShape(5.dp),
+                            onClick = { startActivity(Intent(this@MainActivity, HomeActivity::class.java)) }) {
+                            Text(text = "compose nav")
                         }
                     }
                 }
             }
+
         }
 
         lifecycleScope.launch {
