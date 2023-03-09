@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+//改造后新的，无状态的compose
 @Composable
 fun WellnessTaskItem(
     taskName: String,
@@ -45,6 +45,7 @@ fun WellnessTaskItem(
     }
 }
 
+//旧的，需要状态的compose
 @Composable
 fun WellnessTaskItem(
     taskName: String,
