@@ -12,6 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/Theme.ComposeDemo"
         tools:targetApi="31">
         <activity
@@ -33,6 +34,7 @@
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ComposeAndViewActivity" />
         <activity android:name=".ui.nav.HomeActivity" />
+        <activity android:name=".sample.MviActivity" />
 
 
     </application>

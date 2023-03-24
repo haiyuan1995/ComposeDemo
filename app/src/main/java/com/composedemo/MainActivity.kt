@@ -46,6 +46,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.lifecycleScope
+import com.composedemo.sample.MviActivity
 import com.composedemo.ui.LoginActivity
 import com.composedemo.ui.nav.HomeActivity
 import com.composedemo.ui.theme.ComposeDemoTheme
@@ -87,6 +88,12 @@ class MainActivity : ComponentActivity() {
                         Button(modifier = Modifier.wrapContentSize(), shape = RoundedCornerShape(5.dp),
                             onClick = { startActivity(Intent(this@MainActivity, HomeActivity::class.java)) }) {
                             Text(text = "compose nav")
+                        }
+
+                        Spacer(modifier = Modifier.size(10.dp))
+                        Button(modifier = Modifier.wrapContentSize(), shape = RoundedCornerShape(5.dp),
+                            onClick = { startActivity(Intent(this@MainActivity, MviActivity::class.java)) }) {
+                            Text(text = "compose mvi")
                         }
                     }
                 }
