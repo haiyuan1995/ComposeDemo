@@ -138,7 +138,7 @@ fun MessageCard(card: Card) {
     var isExpanded by remember { mutableStateOf(false) } // 创建一个能够检测卡片是否被展开的变量
 // 创建一个能够根据 isExpanded 变量值而改变颜色的变量
     val surfaceColor by animateColorAsState(
-        targetValue = if (isExpanded) Color(0xFFCCCCCC) else MaterialTheme.colorScheme.surface
+        targetValue = if (isExpanded) Color(0xFFCCCCCC) else MaterialTheme.colorScheme.surface, label = ""
     )
     Surface(shape = MaterialTheme.shapes.medium,
         shadowElevation = 1.dp,

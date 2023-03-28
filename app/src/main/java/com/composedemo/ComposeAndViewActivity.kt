@@ -79,8 +79,8 @@ fun PreviewFun() {
 fun ImageButton(text: String) {
     val context = LocalContext.current
     val pressed = remember { mutableStateOf(false) }
-    val animateFontSize = animateFloatAsState(targetValue = if (pressed.value) 16f else 12f)
-    val sizeAnimate = animateSizeAsState(targetValue = if (pressed.value) Size(200F, 48F) else Size(100f, 48f))
+    val animateFontSize = animateFloatAsState(targetValue = if (pressed.value) 16f else 12f, label = "")
+    val sizeAnimate = animateSizeAsState(targetValue = if (pressed.value) Size(200F, 48F) else Size(100f, 48f), label = "")
     Surface(
         modifier = Modifier
             .background(color = Color.White)
